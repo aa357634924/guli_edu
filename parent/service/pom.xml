@@ -16,6 +16,18 @@
     </modules>
 
     <dependencies>
+        <!--    引入公共的服务配置，swagger2，mybatis-plus分页、自动注入、逻辑删除    -->
+        <dependency>
+            <groupId>com.rj.springcloud</groupId>
+            <artifactId>service_base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--    引入自定义的工具包    -->
+        <dependency>
+            <groupId>com.rj.springcloud</groupId>
+            <artifactId>common_utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -40,15 +52,6 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>com.baomidou</groupId>-->
-        <!--            <artifactId>mybatis-plus-generator</artifactId>-->
-        <!--        </dependency>-->
-        <!-- MyBatis-Plus模板引擎 -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.velocity</groupId>-->
-        <!--            <artifactId>velocity-engine-core</artifactId>-->
-        <!--        </dependency>-->
         <!--   自动生成接口文档     -->
         <dependency>
             <groupId>io.springfox</groupId>

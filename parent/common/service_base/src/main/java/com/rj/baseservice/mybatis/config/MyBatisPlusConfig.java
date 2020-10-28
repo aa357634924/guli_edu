@@ -1,4 +1,4 @@
-package com.rj.springcloud.config;
+package com.rj.baseservice.mybatis.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;

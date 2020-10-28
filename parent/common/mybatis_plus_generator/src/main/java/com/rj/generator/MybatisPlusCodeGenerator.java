@@ -1,4 +1,4 @@
-package com.rj.springcloud.utils;
+package com.rj.generator;
 
 
 import cn.hutool.setting.dialect.Props;

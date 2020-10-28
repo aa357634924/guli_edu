@@ -8,6 +8,6 @@ templatePath: /template/mybatisplus
 #作者名称
 author: rj
 #父包路径
-parentPackagePath: com.rj.springcloud
+parentPackagePath: com.rj
 #若不配置，默认存放在工程根路径下
 projectPath: /Users/rj/Desktop/java/guli_edu/parent/service/service_edu
