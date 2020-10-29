@@ -22,26 +22,15 @@
             <artifactId>service_base</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--    引入自定义的工具包    -->
-        <dependency>
-            <groupId>com.rj.springcloud</groupId>
-            <artifactId>common_utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--    引入自定义的工具包 service_base已经引入过common_utils，所以此处不用再引入了   -->
+<!--        <dependency>-->
+<!--            <groupId>com.rj.springcloud</groupId>-->
+<!--            <artifactId>common_utils</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!--   日志     -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
