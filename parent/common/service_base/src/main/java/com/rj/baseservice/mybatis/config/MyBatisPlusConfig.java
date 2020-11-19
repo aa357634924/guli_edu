@@ -3,6 +3,7 @@ package com.rj.baseservice.mybatis.config;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.context.annotation.Bean;
@@ -37,10 +38,10 @@ public class MyBatisPlusConfig implements MetaObjectHandler {
     /**
      * 乐观锁插件
      * */
-//    @Bean
-//    public OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor() {
-//        return new OptimisticLockerInnerInterceptor();
-//    }
+    @Bean
+    public OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor() {
+        return new OptimisticLockerInnerInterceptor();
+    }
 
     /**
      * 添加操作
@@ -64,7 +65,7 @@ public class MyBatisPlusConfig implements MetaObjectHandler {
         }
         //乐观锁版本号  新增的时候需要设置一个默认值，修改的时候mybatis-plus会自动添加
         if (metaObject.hasSetter("version")) {
-            setFieldValByName("version", 1, metaObject);
+            setFieldValByName("version", 1L, metaObject);
         }
         //逻辑删除，新增数据时，增加默认值0-未删除
         if (metaObject.hasSetter("isDeleted")) {

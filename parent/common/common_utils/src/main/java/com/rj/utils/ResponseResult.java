@@ -22,13 +22,13 @@ public class ResponseResult {
     private Boolean success;
 
     @ApiModelProperty(value = "返回状态码")
-    private Integer returnCode;
+    private Integer code;
 
     @ApiModelProperty(value = "返回消息信息")
-    private String returnMessage;
+    private String message;
 
     @ApiModelProperty(value = "返回数据信息")
-    private Map<String,Object> returnData = new HashMap<>();
+    private Map<String,Object> data = new HashMap<>();
 
     //构造函数私有化，防止其他类创建此类对象
     private ResponseResult(){}
@@ -39,8 +39,8 @@ public class ResponseResult {
     public static ResponseResult ok(){
         ResponseResult r = new ResponseResult();
         r.setSuccess(true);
-        r.setReturnCode(ReturnCode.SUCCESS);
-        r.setReturnMessage("操作成功");
+        r.setCode(ReturnCode.SUCCESS);
+        r.setMessage("操作成功");
         return r;
     }
 
@@ -50,8 +50,8 @@ public class ResponseResult {
     public static ResponseResult error(){
         ResponseResult r = new ResponseResult();
         r.setSuccess(false);
-        r.setReturnCode(ReturnCode.ERROR);
-        r.setReturnMessage("操作失败");
+        r.setCode(ReturnCode.ERROR);
+        r.setMessage("操作失败");
         return r;
     }
 
@@ -61,22 +61,22 @@ public class ResponseResult {
     }
 
     public ResponseResult returnCode(Integer returnCode){
-        this.setReturnCode(returnCode);
+        this.setCode(returnCode);
         return this;
     }
 
     public ResponseResult returnMessage(String returnMessage){
-        this.setReturnMessage(returnMessage);
+        this.setMessage(returnMessage);
         return this;
     }
 
     public ResponseResult returnData(Map<String,Object> returnData){
-        this.setReturnData(returnData);
+        this.setData(returnData);
         return this;
     }
 
     public ResponseResult returnData(String key,Object object){
-        this.returnData.put(key,object);
+        this.data.put(key,object);
         return this;
     }
 }

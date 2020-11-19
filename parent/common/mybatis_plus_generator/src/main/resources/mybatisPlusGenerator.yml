@@ -1,8 +1,8 @@
 #数据库驱动包
 driverName: com.mysql.cj.jdbc.Driver
-url: jdbc:mysql://localhost:3307/guli_edu?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+url: jdbc:mysql://8.131.71.92:3306/edu?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
 username: root
-password: root
+password: ren6213682@
 #模板存放路径
 templatePath: /template/mybatisplus
 #作者名称
@@ -10,4 +10,6 @@ author: rj
 #父包路径
 parentPackagePath: com.rj
 #若不配置，默认存放在工程根路径下
-projectPath: /Users/rj/Desktop/java/guli_edu/parent/service/service_edu
+#projectPath: /Users/rj/Desktop/java/guli_edu/parent/service/service_edu
+#projectPath: /Users/rj/Desktop/java/guli_edu/parent/service/ucenter_member
+projectPath: /Users/rj/Desktop/java/guli_edu/parent/service/statistics

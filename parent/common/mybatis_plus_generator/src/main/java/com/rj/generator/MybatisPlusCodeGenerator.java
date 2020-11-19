@@ -149,7 +149,7 @@ public class MybatisPlusCodeGenerator {
         // controller命名格式
         globalConfig.setControllerName("%sController");
         // 主键ID类型
-        globalConfig.setIdType(IdType.INPUT);
+        globalConfig.setIdType(IdType.ID_WORKER_STR);
         // 时间类型
         globalConfig.setDateType(DateType.ONLY_DATE);
         return globalConfig;

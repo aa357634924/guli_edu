@@ -1,0 +1,17 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /oss
+
+spring:
+  application:
+    name: aliyun-oss-9001 #服务名
+  profiles:
+    active: dev #dev-开发环境:application-dev.yml；test-测试环境:application-test.yml；prod-生产环境:application-prod.yml
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 8.131.71.92:8848
+
+
+

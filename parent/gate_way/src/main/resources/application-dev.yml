@@ -1,0 +1,38 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    # 服务名必须不能用"_"作为连接符，否则使用openfeign时会报错：java.lang.IllegalStateException: Service id not legal hostname (aliyun_oss_9001)
+    name: edu-getway-8004 #服务名
+  profiles:
+    active: dev #dev-开发环境:application-dev.yml；test-测试环境:application-test.yml；prod-生产环境:application.yml
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 8.131.71.92:8848 # nacos 注册中心地址
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: edu-teacher-8001 #payment_routh #路由的ID，没有固定规则，但要求唯一，建议配合服务名
+          uri: http://localhost:8001  #匹配后提供服务的路由地址 没有进行负载均衡
+#          uri: lb://edu-teacher-8001 #匹配后提供服务的路由地址
+          predicates:
+            - Path=/edu/** #断言，路径相匹配的进行路由
+
+        - id: edu-member-8002 #payment_routh #路由的ID，没有固定规则，但要求唯一，建议配合服务名
+          #uri: http://localhost:8001  #匹配后提供服务的路由地址
+          uri: lb://edu-member-8002 #匹配后提供服务的路由地址
+          predicates:
+            - Path=/member/** #断言，路径相匹配的进行路由
+#      - id: edu-member-8002 # 服务唯一标识，建议与服务名保持一致
+#        uri: lb://edu-member-8002 # 设置路由的uri，固定写法：lb://注册中心上的服务名
+#        predicates:
+#          - Path=/member/** # 断言，路径匹配规则
+#      - id: edu-statistics-8003 # 服务唯一标识，建议与服务名保持一致
+#        uri: lb://edu-statistics-8003 # 设置路由的uri，固定写法：lb://注册中心上的服务名
+#        predicates:
+#          - Path=/statistics/** # 断言，路径匹配规则
+

@@ -1,0 +1,63 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /member
+
+spring:
+  application:
+    # 服务名必须不能用"_"作为连接符，否则使用openfeign时会报错：java.lang.IllegalStateException: Service id not legal hostname (aliyun_oss_9001)
+    name: edu-member-8002 #服务名
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver #数据库驱动包
+    url: jdbc:mysql://8.131.71.92:3306/edu?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+    username: root
+    password: ren6213682@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 8.131.71.92:8848
+  redis:
+    host: 8.131.71.92
+    port: 6379
+    database: 0
+    timeout: 180000
+    lettuce:
+      pool:
+        max-active: 20 # 连接池最大连接数（使用负值表示没有限制）
+        max-idle: 5 # 连接池中的最大空闲连接
+        max-wait: -1 #连接池最大阻塞等待时间（使用负值表示没有限制)
+        min-idle: 0 # 连接池中的最小空闲连接
+    password: 123456
+
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  #  type-aliases-package: com.rj.springcloud.bean
+  global-config:
+    db-config:
+      #逻辑删除配置（下面2个配置）
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+# 负载均衡
+ribbon:
+  # 读取资源超时时间
+  ReadTimeout: 5000
+  # 建立连接超时时间
+  ConnectTimeout: 5000
+
+# 开启熔断机制
+feign:
+  hystrix:
+    enabled: true
+
+wx:
+  open:
+    # 微信开放平台 appid
+    appid: wxed9954c01bb89b47
+    # 微信开放平台 appsecret
+    appsecret: a7482517235173ddb4083788de60b90e
+    # 微信开放平台 重定向url（guli.shop需要在微信开放平台配置）
+    redirecturl: http://guli.shop/api/ucenter/wx/callback
+

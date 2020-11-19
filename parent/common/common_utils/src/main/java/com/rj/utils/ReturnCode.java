@@ -12,4 +12,13 @@ public interface ReturnCode {
     public static final Integer SUCCESS = 20000;
     //失败
     public static final Integer ERROR = 20001;
+    //包含子数据
+    public static final Integer HASCHILDREN = 20002;
+
+    //已发布
+    public static final String PUBLISHED = "Normal";
+    //未发布
+    public static final String NOTPUBLISH = "Draft";
+
+
 }
