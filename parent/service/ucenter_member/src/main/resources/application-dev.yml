@@ -10,16 +10,16 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver #数据库驱动包
-    url: jdbc:mysql://8.131.71.92:3306/edu?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+    url: jdbc:mysql:///edu?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
     username: root
-    password: ren6213682@
+    password:
   cloud:
     nacos:
       discovery:
-        server-addr: 8.131.71.92:8848
+        server-addr:
   redis:
-    host: 8.131.71.92
-    port: 6379
+    host:
+    port:
     database: 0
     timeout: 180000
     lettuce:
@@ -55,9 +55,9 @@ feign:
 wx:
   open:
     # 微信开放平台 appid
-    appid: wxed9954c01bb89b47
+    appid:
     # 微信开放平台 appsecret
-    appsecret: a7482517235173ddb4083788de60b90e
+    appsecret:
     # 微信开放平台 重定向url（guli.shop需要在微信开放平台配置）
-    redirecturl: http://guli.shop/api/ucenter/wx/callback
+    redirecturl:
 
